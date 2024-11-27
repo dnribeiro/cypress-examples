@@ -1,0 +1,15 @@
+{
+  "name": "cypress-examples",
+  "version": "1.0.0",
+  "description": "A fim de explorar as funcionalidades do Cypress, este repositório servirá como um aprendizado para estruturar testes mais complexos em um futuro próximo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.16.0"
+  }
+}
