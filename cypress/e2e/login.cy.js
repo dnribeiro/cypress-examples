@@ -17,7 +17,7 @@ describe('Teste funcional de login', () => {
         .and("have.text", "Products")
     });
 
-    it('Deve inserir um usuário bloqueado e o mesmo deve ser impedido de entrar no sistema, verificando se o alerta está funcionando corretamente', () => {
+    it('Deve inserir um usuário bloqueado e o mesmo deve ser impedido de entrar no sistema e alertado', () => {
         // ACT
         cy.get('[data-test="username"]').type("locked_out_user")
         cy.get('[data-test="password"]').type("secret_sauce")
