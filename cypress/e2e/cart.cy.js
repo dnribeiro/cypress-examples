@@ -18,7 +18,8 @@ describe('Teste funcional carrinho de compras', () => {
 
         cy.get('[data-test="shopping-cart-badge"]')
         .should("be.visible")
-        .and("contain", "1")
+        .and("have.text", "1")  // deve ser "have.text" em vez de "contain" para evitar falsos positivos
+                                // no caso de numeros como 11, 21, 31 que contêm 1, mas não são 1
     });
 
     it('Quando autenticado, deve ser possível adicionar múltiplos itens ao carrinho de compras', () => {
@@ -48,7 +49,7 @@ describe('Teste funcional carrinho de compras', () => {
 
         cy.get('[data-test="shopping-cart-badge"]')
         .should("be.visible")
-        .and("contain", "3")
+        .and("have.text", "3")
     });
 
     it('Quando autenticado, deve ser possível acessar o carrinho de compras', () => {

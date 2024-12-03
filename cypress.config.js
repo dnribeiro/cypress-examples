@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const webpackConfig = require('./webpack.config.js');
 
 module.exports = defineConfig({
   e2e: {
@@ -7,5 +8,13 @@ module.exports = defineConfig({
     },
     chromeWebSecurity: false,
     baseUrl: "https://www.saucedemo.com",
+  },
+
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "webpack",
+      webpackConfig
+    },
   },
 });
