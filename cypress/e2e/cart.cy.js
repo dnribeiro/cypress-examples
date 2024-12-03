@@ -61,4 +61,26 @@ describe('Teste funcional carrinho de compras', () => {
         .should("be.visible")
         .and("contain", "Your Cart")
     });
+
+    it('Quando adicionar um item ao carrinho de compras, o mesmo deve estar na página do carrinho', () => {
+        // ACT
+        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
+        cy.get('[data-test="shopping-cart-link"]').click()
+        
+        // ASSERT
+        cy.get('[data-test="inventory-item"]')
+        .should("be.visible")
+        .and("contain", "Sauce Labs Bike Light")
+    });
+
+    it('Quando adicionar um item ao carrinho de compras, o mesmo pode ser removido na página do carrinho', () => {
+        // ACT
+        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
+        cy.get('[data-test="shopping-cart-link"]').click()
+        cy.get('[data-test="remove-sauce-labs-bike-light"]').click()
+
+        // ASSERT
+        cy.get('[data-test="inventory-item"]')
+        .should("not.exist")
+    });
 });
