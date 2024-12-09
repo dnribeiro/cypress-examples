@@ -5,6 +5,6 @@ name: cypress-examples
 steps:
   - name: Build
     image_pull: always
-    image: cypress/included/13.16.1
+    image: cypress/included:13.16.1
     commands:
       - npx cypress run
