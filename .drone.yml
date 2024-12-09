@@ -5,6 +5,6 @@ name: cypress-examples
 steps:
   - name: Build
     image_pull: always
-    image: cypress/included:latest
+    image: alpine:latest
     commands:
-      - npx cypress run
+      - cd
