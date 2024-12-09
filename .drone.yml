@@ -7,4 +7,5 @@ steps:
     image_pull: always
     image: alpine:latest
     commands:
-      - cd
+      - npm install
+      - npx cypress run
