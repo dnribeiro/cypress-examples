@@ -5,7 +5,7 @@ name: cypress-examples
 steps:
   - name: Build
     image_pull: always
-    image: alpine:latest
+    image: alpine/node:latest
     commands:
       - npm install
       - npx cypress run
