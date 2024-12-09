@@ -1,0 +1,9 @@
+kind: pipeline
+name: cypress-examples
+type: docker
+
+steps:
+  - name: Build
+    image: cypress/included:13.16.1
+    commands:
+      - npx Cypress run
