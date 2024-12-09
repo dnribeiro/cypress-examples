@@ -1,9 +1,9 @@
 kind: pipeline
-name: cypress-examples
 type: docker
+name: cypress-examples
 
 steps:
   - name: Build
-    image: cypress/included:cypress-13.16.1-node-22.12.0-chrome-131.0.6778.108-1-ff-133.0-edge-131.0.2903.70-1
+    image: cypress/included:latest
     commands:
       - npx Cypress run
