@@ -4,6 +4,7 @@ name: cypress-examples
 
 steps:
   - name: Build
+    image_pull: always
     image: cypress/included:latest
     commands:
-      - npx Cypress run
+      - npx cypress run
