@@ -18,7 +18,5 @@ steps:
     environment:
       GITHUB_TOKEN:
         from_secret: GITHUB_TOKEN
-      PULL_NUMBER:
-        from_secret: ${DRONE_PULL_REQUEST}
       commands:
         - node post-comment.js

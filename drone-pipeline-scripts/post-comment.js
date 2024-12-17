@@ -5,7 +5,8 @@ const path = require('path');
 const token = process.env.GITHUB_TOKEN;
 const repo = process.env.DRONE_REPO_NAME; // Nome do repositório do Drone
 const owner = process.env.DRONE_REPO_OWNER; // Nome do proprietário do repositório
-const pull_number = process.env.PULL_NUMBER;
+const pull_number = process.env.DRONE_PULL_REQUEST; // Número da PR
+
 
 const octokit = new Octokit({ auth: token });
 
