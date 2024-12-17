@@ -2,10 +2,10 @@ kind: pipeline
 type: docker
 name: cypress-examples
 
-trigger:
-  event:
-    - pull_request
-    - commit
+# trigger:
+#   event:
+#     - pull_request
+#     - commit
 
 steps:
   # - name: Run E2E Tests
