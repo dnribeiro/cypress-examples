@@ -29,5 +29,5 @@ steps:
       GITHUB_TOKEN:
         from_secret: GITHUB_TOKEN
     commands:
-      - dir
+      - cd drone-pipeline-scripts
       - node post-comment.js
