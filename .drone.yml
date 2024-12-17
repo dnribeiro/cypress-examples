@@ -29,5 +29,5 @@ steps:
       GITHUB_TOKEN:
         from_secret: GITHUB_TOKEN
     commands:
-      - cd cypress-examples/drone-pipeline-scripts/post-comment.js
+      - cd cypress-examples/drone-pipeline-scripts
       - node post-comment.js
