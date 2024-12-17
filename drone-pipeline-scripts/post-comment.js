@@ -7,7 +7,7 @@ const owner = process.env.DRONE_REPO_OWNER; // Nome do proprietário do reposit�
 const pull_number = process.env.DRONE_PULL_REQUEST; // Número da PR
 
 // Caminho do relatório Cypress
-const reportPath = path.resolve('cypress/results/results.json');
+const reportPath = path.resolve('./cypress/results/results.json');
 
 async function postComment() {
   try {
