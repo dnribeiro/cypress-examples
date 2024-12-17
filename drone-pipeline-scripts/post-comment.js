@@ -43,7 +43,7 @@ async function postComment() {
     }
 
     // Publicar comentário na PR
-    await octokit.issues.createComment({
+    await octokit.pulls.createReviewComment({
       owner,
       repo,
       pull_number: pull_number,
