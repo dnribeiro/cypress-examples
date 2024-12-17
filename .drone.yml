@@ -8,14 +8,14 @@ name: cypress-examples
 #     - commit
 
 steps:
-  - name: Check Token
-      image: alpine
-      environment:
-        GITHUB_TOKEN:
-          from_secret: GITHUB_TOKEN
-      commands:
-        - echo "Token length:" $(echo -n "$GITHUB_TOKEN" | wc -c) # Calcula o comprimento do token
-        - echo "Token starts with:" $(echo "$GITHUB_TOKEN" | cut -c1-4) # Exibe os 4 primeiros caracteres
+  # - name: Check Token
+  #   image: alpine
+  #   environment:
+  #     GITHUB_TOKEN:
+  #       from_secret: GITHUB_TOKEN
+  #   commands:
+  #     - echo "Token length:" $(echo -n "$GITHUB_TOKEN" | wc -c) # Calcula o comprimento do token
+  #     - echo "Token starts with:" $(echo "$GITHUB_TOKEN" | cut -c1-4) # Exibe os 4 primeiros caracteres
   
   - name: Run E2E Tests
     # image_pull: always
