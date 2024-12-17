@@ -32,5 +32,4 @@ steps:
         from_secret: GITHUB_TOKEN
     commands:
       - npm install @octokit/rest
-      - cd drone-pipeline-scripts
-      - node post-comment.js
+      - node drone-pipeline-scripts/post-comment.js
