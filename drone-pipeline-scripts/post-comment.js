@@ -1,4 +1,3 @@
-const { Octokit } = await import("@octokit/rest");
 const fs = require('fs');
 const path = require('path');
 
@@ -7,14 +6,14 @@ const repo = process.env.DRONE_REPO_NAME; // Nome do repositório do Drone
 const owner = process.env.DRONE_REPO_OWNER; // Nome do proprietário do repositório
 const pull_number = process.env.DRONE_PULL_REQUEST; // Número da PR
 
-
-const octokit = new Octokit({ auth: token });
-
 // Caminho do relatório Cypress
 const reportPath = path.resolve('cypress/results/results.json');
 
 async function postComment() {
   try {
+    // Importar Octokit dinamicamente 
+    const { Octokit } = await import("@octokit/rest"); 
+    const octokit = new Octokit({ auth: token });
     // Validar se o arquivo existe
     if (!fs.existsSync(reportPath)) {
       throw new Error("Cypress report file not found!");
