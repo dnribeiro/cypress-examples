@@ -35,4 +35,5 @@ steps:
       - node drone-pipeline-scripts/post-comment.js
       - pwd
       - ls
-      - ls results
+      - ls cypress
+      - ls cypress/results
