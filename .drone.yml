@@ -20,6 +20,8 @@ steps:
   #       from_secret: GITHUB_TOKEN
   #     commands:
   #       - node post-comment.js
+
+steps:
   - name: Check Token
     image: alpine
     environment:
