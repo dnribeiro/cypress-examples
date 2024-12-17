@@ -33,7 +33,3 @@ steps:
       - npx mochawesome-merge cypress/results/*.json -o cypress/results/results.json
       - npm install @octokit/rest
       - node drone-pipeline-scripts/post-comment.js
-      - pwd
-      - ls
-      - ls cypress
-      - ls cypress/results
