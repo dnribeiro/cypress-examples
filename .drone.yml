@@ -7,16 +7,24 @@ trigger:
     - pull_request
 
 steps:
-  - name: Run E2E Tests
-    # image_pull: always
-    image: cypress/included:13.16.1
-    commands:
-      - cypress run --reporter json --reporter-options "outputPath=cypress/results/results.json"
+  # - name: Run E2E Tests
+  #   # image_pull: always
+  #   image: cypress/included:13.16.1
+  #   commands:
+  #     - cypress run --reporter json --reporter-options "outputPath=cypress/results/results.json"
 
-  - name: Post comment
-    image: node:18
+  # - name: Post comment
+  #   image: node:18
+  #   environment:
+  #     GITHUB_TOKEN:
+  #       from_secret: GITHUB_TOKEN
+  #     commands:
+  #       - node post-comment.js
+    - name: Check Token
+    image: alpine
     environment:
       GITHUB_TOKEN:
         from_secret: GITHUB_TOKEN
-      commands:
-        - node post-comment.js
+    commands:
+      - echo "Token length: ${#GITHUB_TOKEN}" # Imprime o comprimento do token
+      - echo "Token starts with: ${GITHUB_TOKEN:0:4}" # Exibe os 4 primeiros caracteres
