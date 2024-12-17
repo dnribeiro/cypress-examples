@@ -33,3 +33,5 @@ steps:
       - npm install @octokit/rest
       - cd drone-pipeline-scripts
       - node post-comment.js
+    when:
+      always: true
