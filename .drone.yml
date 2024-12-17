@@ -20,6 +20,7 @@ steps:
     # image_pull: always
     image: cypress/included:13.16.1
     commands:
+      - npm i
       - npx cypress run
       - npx mochawesome-merge cypress/results/*.json -o cypress/results/results.json
 
