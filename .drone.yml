@@ -20,7 +20,8 @@ steps:
     # image_pull: always
     image: cypress/included:13.16.1
     commands:
-      - cypress run --reporter json --reporter-options "outputPath=cypress/results/results.json"
+      - npx cypress run
+      - npx mochawesome-merge cypress/results/*.json -o cypress/results/results.json
 
   - name: Post comment
     image: node:18
