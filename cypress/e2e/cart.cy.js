@@ -59,7 +59,7 @@ describe('Teste funcional carrinho de compras', () => {
 
         // ASSERT
         cy.get('[data-test="title"]')
-        .should("not", "be.visible")
+        .should("be.visible")
         .and("contain", "Your Cart")
     });
 

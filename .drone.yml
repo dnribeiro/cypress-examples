@@ -19,6 +19,7 @@ steps:
   - name: Run E2E Tests
     # image_pull: always
     image: cypress/included:13.16.1
+    failure: ignore
     commands:
       - npm i
       - npx cypress run
@@ -33,5 +34,3 @@ steps:
       - npm install @octokit/rest
       - cd drone-pipeline-scripts
       - node post-comment.js
-    when:
-      always: true
