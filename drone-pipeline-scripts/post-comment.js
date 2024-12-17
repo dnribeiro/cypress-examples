@@ -46,7 +46,7 @@ async function postComment() {
     await octokit.issues.createComment({
       owner,
       repo,
-      issue_number: pull_number,
+      pull_number: pull_number,
       body: commentBody,
     });
 
