@@ -1,4 +1,4 @@
-const { Octokit } = require("@octokit/rest");
+const { Octokit } = await import("@octokit/rest");
 const fs = require('fs');
 const path = require('path');
 
