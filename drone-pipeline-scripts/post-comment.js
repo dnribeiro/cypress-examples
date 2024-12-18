@@ -43,7 +43,7 @@ async function postComment() {
     }
 
     // Publicar comentário na PR
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       owner,
       repo,
       issue_number: pull_number,
@@ -52,7 +52,18 @@ async function postComment() {
 
     console.log("Comment posted successfully.\n" + commentBody);
   } catch (error) {
-    console.error("Failed to post comment:", error);
+    console.error("Failed to post comment. Full error details:");
+    console.error("Error name:", error.name);
+    console.error("Error message:", error.message);
+    
+    // Caso o erro seja HTTP
+    if (error.response) {
+      console.error("Response status:", error.response.status);
+      console.error("Response data:", error.response.data);
+    }
+
+    // Garantir que o erro esteja visível nos logs do Drone
+    throw error;
   }
 }
 
