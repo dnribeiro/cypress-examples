@@ -19,8 +19,10 @@ steps:
   - name: Run E2E Tests
     # image_pull: always
     image: cypress/included:13.16.1
+    failure: ignore
     commands:
-      - cypress run --reporter json --reporter-options "outputPath=cypress/results/results.json"
+      - npm i
+      - npx cypress run
 
   - name: Post comment
     image: node:18
@@ -28,6 +30,6 @@ steps:
       GITHUB_TOKEN:
         from_secret: GITHUB_TOKEN
     commands:
+      - npx mochawesome-merge cypress/results/*.json -o cypress/results/results.json
       - npm install @octokit/rest
-      - cd drone-pipeline-scripts
-      - node post-comment.js
+      - node drone-pipeline-scripts/post-comment.js

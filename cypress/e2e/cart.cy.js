@@ -49,8 +49,8 @@ describe('Teste funcional carrinho de compras', () => {
 
         cy.get('[data-test="shopping-cart-badge"]')
         .should("be.visible")
-        .and("have.text", "3")
-        //.and("have.text", "2") // para dar erro
+        //.and("have.text", "3")
+        .and("have.text", "2") // para dar erro
     });
 
     it('Quando autenticado, deve ser possível acessar o carrinho de compras', () => {
