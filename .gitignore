@@ -1,1 +1,4 @@
 node_modules/
+cypress/results/
+output.json
+screenshots/
