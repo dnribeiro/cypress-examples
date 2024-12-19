@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const token = process.env.GITHUB_TOKEN;
+const token = process.env.GITHUB_TOKEN; // Token github do secret
 const repo = process.env.DRONE_REPO_NAME; // Nome do repositório do Drone
 const owner = process.env.DRONE_REPO_OWNER; // Nome do proprietário do repositório
 const pull_number = process.env.DRONE_PULL_REQUEST; // Número da PR
@@ -13,7 +13,16 @@ async function postComment() {
   try {
     // Importar Octokit dinamicamente 
     const { Octokit } = await import("@octokit/rest"); 
-    const octokit = new Octokit({ auth: token });
+    
+    // Debug log to check if token exists (don't log the actual token)
+    console.log('Token exists:', !!token);
+
+    // Initialize Octokit with proper authentication
+    const octokit = new Octokit({
+      auth: `token ${token}`, // Add 'token' prefix
+      baseUrl: 'https://api.github.com'
+    });
+
     // Validar se o arquivo existe
     if (!fs.existsSync(reportPath)) {
       throw new Error("Cypress report file not found!");
