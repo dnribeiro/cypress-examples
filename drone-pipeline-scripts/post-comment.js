@@ -31,9 +31,10 @@ async function postComment() {
     const results = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
 
     // Criar corpo do comentário
-    let commentBody = `### Cypress Test Results\n\n**Summary:**\n- Passed: ${results.stats.passes || 0}\n- Failed: ${results.stats.failures || 0}\n\n`;
+    let commentBody = `## Cypress Test Results\n- ✅ Passed: ${results.stats.passes || 0}\n- ❌ Failed: ${results.stats.failures || 0}\n\n`;
 
     (results.results || []).forEach((result) => {
+      commentBody += `### File: ${result.fullFile}\n`;
       (result.suites || []).forEach((suite) => {
         (suite.tests || []).forEach((test) => {
           if (test.state === 'passed'){
