@@ -34,7 +34,7 @@ async function postComment() {
     let commentBody = `## Cypress Test Results\n- ✅ Passed: ${results.stats.passes || 0}\n- ❌ Failed: ${results.stats.failures || 0}\n\n`;
 
     (results.results || []).forEach((result) => {
-      commentBody += `### File: ${result.fullFile}`
+      commentBody += `### File: ${String(result.fullFile)}`
       (result.suites || []).forEach((suite) => {
         (suite.tests || []).forEach((test) => {
           if (test.state === 'passed'){
